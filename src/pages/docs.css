@@ -1,0 +1,47 @@
+.docs-head img {
+  width: 300px;
+  justify-self: flex-end;
+}
+
+.docs-main h3 {
+  margin: 20px 0;
+}
+
+.docs-main .grid {
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+}
+
+.docs-main nav li {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px #ccc solid;
+}
+
+.docs-main nav a:hover {
+  font-weight: bold;
+}
+
+code,
+pre {
+  background: #333;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+@media (max-width: 768px) {
+  .docs-head .grid,
+  .docs-main .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .docs-head,
+  .docs-main {
+    text-align: center;
+    overflow: visible;
+  }
+  .docs-head img,
+  .docs-main img {
+    justify-self: center;
+  }
+}

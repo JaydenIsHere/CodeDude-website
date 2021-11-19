@@ -1,0 +1,197 @@
+/* CSS Variables */
+.hidden {
+  visibility: hidden;
+  height: 0;
+}
+.showcase {
+  height: 400px;
+  background-color: var(--bg);
+  color: var(--light);
+  position: relative;
+  /*if we want to position anything absolute we can*/
+}
+
+.showcase h1 {
+  font-size: 40px;
+}
+
+.showcase p {
+  margin: 10px 0;
+}
+
+.showcase .grid {
+  /*custom grid*/
+  grid-template-columns: 54% 44%;
+  gap: 40px;
+}
+
+.showcase .container {
+  /*hide scroll bar*/
+  overflow: visible;
+}
+
+.showcase-form {
+  position: relative; /*I want to use top left right*/
+  top: 60px;
+  height: 350px;
+  width: 400px;
+  padding: 40px;
+  z-index: 100;
+  justify-self: flex-end;
+  animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-text {
+  animation: slideInFromLeft 1s ease-in;
+}
+
+.showcase-form .form-control {
+  margin: 30px 0;
+}
+
+.showcase-form input[type='text'],
+.showcase-form input[type='email'] {
+  /*we only style text not include sbmit button*/
+  border: 0;
+  border-bottom: 1px solid #b4becd;
+  width: 100%; /*all the way across*/
+  padding: 3px;
+  font-size: 16px;
+}
+
+.showcase-form input:focus {
+  /*get rid of ugly input border*/
+  outline: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px #fff solid;
+}
+
+.showcase::before,
+.showcase::after {
+  /*shaping the background bottom*/
+  content: '';
+  position: absolute;
+  height: 100px;
+  bottom: -70px;
+  right: 0;
+  left: 0;
+  background: var(--light);
+  transform: skewY(-2deg);
+
+  /*for IE fox safari*/
+  -webkit-transform: skewY(-2deg);
+  -moz-transform: skewY(-2deg);
+  -ms-transform: skewY(-2deg);
+}
+
+.stats {
+  padding-top: 100px;
+  animation: slideInFromBottom 1s ease-in;
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stats-heading {
+  max-width: 500px;
+  margin: auto; /*center text*/
+}
+
+.stats .grid h3 {
+  font-size: 35px;
+}
+
+.stats .grid p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*------CLi-----*/
+.cli .grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid > *:first-child {
+  /*image span 2col and 2rows*/
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/*---------CLoud--------*/
+.cloud .grid {
+  grid-template-columns: 4fr 3fr;
+}
+
+/*--------language--------*/
+.languages .container {
+  max-width: 1200px;
+}
+.languages .flex {
+  flex-wrap: wrap; /*logo go to next when resize*/
+}
+.languages .card {
+  text-align: center;
+  margin: 18px 10px 40px;
+  transition: transform 0.2s ease;
+}
+
+.languages .card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.languages .card:hover {
+  transform: translateY(-10px);
+}
+
+/* ------------Tablets and under-----------*/
+@media (max-width: 850px) {
+  .grid,
+  .showcase .grid,
+  .cli .grid,
+  .cloud .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .showcase {
+    height: auto;
+  }
+  .showcase-text {
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 10px;
+  }
+  .showcase-form {
+    justify-self: center;
+    margin: auto;
+  }
+  .cli .grid > *:first-child {
+    /*image span 2col and 2rows*/
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .cli .card .h3 {
+  }
+}
+
+/* ------------Mobile-----------*/
+@media (max-width: 500px) {
+  .showcase-text {
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+  .showcase-form {
+    position: relative; /*I want to use top left right*/
+    top: 60px;
+    height: 350px;
+    width: 300px;
+    padding: 40px;
+    z-index: 100;
+    justify-self: flex-end;
+  }
+}
